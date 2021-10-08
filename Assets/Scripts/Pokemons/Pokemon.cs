@@ -1,14 +1,39 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
+// A class that defines our pokemon, return valies based on the pokemons level
 public class Pokemon
 {
     PokemonBase _base;
     int _level;
 
+    public List<Move> Moves { get; set; } // moves list
+    public int HP { get; set; } // current HP
+
     public Pokemon(PokemonBase pBase, int pLevel)
     {
-        _base = pBase;
-        _level = pLevel;
+        _base = pBase; // base information to start with
+        _level = pLevel; // current level of the pokemon
+        HP = _base.MaxHp; // current HP
+
+        // add the moves to this pokemon based on its level
+        Moves = new List<Move>();
+        foreach (var move in _base.LearnableMoves)
+        {
+            // check if a moves level is less than that of the pokemon
+            if (move.Level <= _level)
+            {
+                // add the move to the move list
+                Moves.Add(new Move(move.Base));
+            }
+
+            // we can only have max 4 moves per pokemon
+            if (Moves.Count >= 4)
+            {
+                break;
+            }
+        }
     }
 
     public int MaxHp { 

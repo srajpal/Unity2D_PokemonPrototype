@@ -12,15 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 228979a5ad6192648a26c28c993b0bc5, type: 3}
   m_Name: Balbasaur
   m_EditorClassIdentifier: 
-  name: 
+  pokemonName: Balbasaur
   description: 
   frontSprite: {fileID: 21300000, guid: 0f37bf3cf5680a64d863b5f155b2a597, type: 3}
   backSprite: {fileID: 21300000, guid: aacaae602a38f884ab9e02e43de3736d, type: 3}
   type1: 5
   type2: 8
   maxHp: 45
-  atack: 49
+  attack: 0
   deffense: 49
   spAttack: 65
   spDefense: 65
   speed: 45
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: e9823bbe9e7dd554ebe6b7498e7ffafd, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: c5b3d529da0720e4783ee1d357f099e0, type: 2}
+    level: 4
+  - moveBase: {fileID: 11400000, guid: aa18c620a2733de4aafbd145372d3315, type: 2}
+    level: 7
