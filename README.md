@@ -12,7 +12,7 @@ git remote add origin https://github.com/srajpal/Unity2D_PokemonPrototype.git
 
 How to reset git
 
-git checkout master
+git checkout master<br>
 git reset --hard origin/master
 
 
