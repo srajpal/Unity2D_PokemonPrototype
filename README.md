@@ -5,6 +5,11 @@ https://www.youtube.com/playlist?list=PLLf84Zj7U26kfPQ00JVI2nIoozuPkykDX
 
 ##Git Stuff
 
+Create git
+
+git remote add origin https://github.com/srajpal/Unity2D_PokemonPrototype.git
+
+
 How to reset git
 
 git checkout master
