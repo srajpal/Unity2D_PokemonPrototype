@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
             // GetAxisRaw returns -1, 0, 1
             // We do this so the player moves from one tile to the next.
             // We do not want the player moving to part of a tile.
-            // This will simulate the movement in 16 bit pokemon games
+            // This will simulate the movement in 16 bit pokemon games.
             input.x = Input.GetAxisRaw("Horizontal");
             input.y = Input.GetAxisRaw("Vertical");
 
