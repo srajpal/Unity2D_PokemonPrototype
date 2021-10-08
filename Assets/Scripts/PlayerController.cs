@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
     public LayerMask solidObjectLayer;
+    public LayerMask grassLayer;
 
     private bool isMoving;
     private Vector2 input;
@@ -77,6 +78,8 @@ public class PlayerController : MonoBehaviour
         transform.position = targetPos;
 
         isMoving = false;
+
+        CheckForEncounters();
     }
 
     // instead of adding coliders to individual tiles we have added a tilemap collider
@@ -92,5 +95,18 @@ public class PlayerController : MonoBehaviour
             return false;
         }
         return true;
+    }
+
+    private void CheckForEncounters() 
+    {
+        // check if player is currently standing on grass layer
+        if (Physics2D.OverlapCircle(transform.position, 0.2f, grassLayer) != null)
+        {
+            // 10% of the time encounter a pokemon
+            if (Random.Range(1,101) <= 10) 
+            {
+                Debug.Log("Encountered a Pokemon");
+            }
+        }
     }
 }
