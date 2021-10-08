@@ -8,6 +8,12 @@ public class PlayerController : MonoBehaviour
 
     private bool isMoving;
     private Vector2 input;
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void Update() 
     {
@@ -31,6 +37,9 @@ public class PlayerController : MonoBehaviour
             // if the player was moved
             if (input != Vector2.zero) 
             {
+                animator.SetFloat("moveX", input.x);
+                animator.SetFloat("moveY", input.y);
+
                 // add the new movement to the current position
                 var targetPos = transform.position;
                 targetPos.x += input.x;
@@ -40,17 +49,19 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(MovePlayer(targetPos));
             }
         }
+
+        animator.SetBool("isMoving", isMoving);
     }
 
     // A Coroutine that will run over a period of time to move the player
     IEnumerator MovePlayer(Vector3 targetPos)
     {
+        isMoving = true;
+
         // while the difference between the target position and current possition is 
         // bigger than a very small value move towards the new position
         while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
         {
-            isMoving = true;
-
             transform.position = Vector3.MoveTowards(
                 transform.position,
                 targetPos,
